@@ -55,3 +55,722 @@ Slipviewcontroller
 1. Go to Editor --> Embed In --> Tab Bar Controller (or Navigation Controller) (first select any viewController / NavCont/TabBarCont/ Table/Collection view controllers)
 
 
+
+
+
+
+API stands for Application Programming Interface. It is a programmatic way to be able to access functions and data of other apps. Today pretty much every major platform has an API, most of them are free and you can access them to work with maps and location you can use facebook, twitter or google and all the data they have. So API’s allows you to access a huge amount of data and built apps that rely on existing systems like facebook or twitter.
+
+
+1. A tuple is used to arrange multiple values in a single compound Value     EX: ("interview", 123) 
+
+     	To create a tuple: To create it, you should have tuple literals which are a list of values listed in tuple separated by the comma. For example, 			the point is a tuple created by tuple literals written in between a pair of parentheses. To change a tuple literal, use dot notation with tuple’s name 		and assign the desired value. Check example:
+
+	var TupleName = (Value1, value2,… any number of values)
+	var point = (0, 0)
+	point.0 = 10
+	point.1 = 15
+	point // (10, 15)
+
+	You can name the variables of a tuple while declaring , and you can call them using their names
+
+	var error501 = (errorCode: 501, description: “Not Implemented”)
+	print(error501.errorCode)   // prints 501.
+
+	Tuples are helpful in returning multiple values from a function. Like, a web application might return a tuple of type ("String", Int) to show whether 		the loading was successful or failed.
+
+	By returning different values in a tuple we can make decisions depending on different tuple types.
+	Note − Tuples are useful for temporary values and are not suited for complex data.
+
+
+2. What is the benefit of using Higher order function?
+	
+	Higher order functions are those in which you can pass a function as an argument and returns a function as a result. There are many benefits to 		using them:
+
+*     They provide flexibility but compromises with complexity.
+*     They are useful in asynchronous communications in which simple functions can’t be used.
+*     They improve the readability of code and decreases the length of the code.
+
+
+3. Type Aliases
+	
+	EX:	typealias Feet = Int
+		var distance: Feet = 100
+		print(distance)
+
+4. Type Safety
+	
+	EX: 	var varA = 42
+			varA = "This is hello"
+			print(varA)
+	When we compile the above program, it produces the following compile time error.
+	main.swift:2:8: error: cannot assign value of type 'String' to type 'Int'
+	varA = "This is hello"
+
+
+5. Type Inference
+
+	EX:		// varA is inferred to be of type Int
+			var varA = 42
+			print(varA)
+
+			// varB is inferred to be of type Double
+			var varB = 3.14159
+			print(varB)
+
+			// varC is also inferred to be of type Double
+			var varC = 3 + 0.14159
+			print(varC)
+
+	O/P: 		42
+		3.14159
+		3.14159
+
+
+6. Type Annotations
+
+	You can provide a type annotation when you declare a variable, to be clear about the kind of values the variable can store. Here 	is the syntax −
+
+	EX: var variableName:<data type> = <optional initial value>
+
+	The following example shows how to declare a variable in Swift 4 using Annotation. Here it is important to note that if we are not using type annotation, then it becomes mandatory to provide an initial value for the variable, otherwise we can just declare our  variable using type annotation.
+
+	var varA = 42
+	print(varA)
+
+	var varB:Float
+
+	varB = 3.14159
+	print(varB)
+
+
+7. Printing Variables
+
+	EX: 	var varA = "Godzilla"
+		var varB = 1000.00
+
+		print("Value of \(varA) is more than \(varB) millions")
+
+
+8. Optionals
+
+		which handles the absence of a value. Optionals say either "there is a value, and it equals x" or "there isn't a value at all".
+	
+		It has two possible values, None and Some(T), where T is an associated value of the correct data type available in Swift 4.
+
+EX:  var perhapsInt: Int?
+	
+		The above declaration is equivalent to explicitly initializing it to nil which means no value −
+
+		var perhapsInt: Int? = nil
+
+	EX2:  var myString:String? = nil
+
+   		if myString != nil {
+   			print(myString)
+		} else {
+ 			  print("myString has nil value")
+		}
+
+9. Forced Unwrapping
+
+	If you defined a variable as optional, then to get the value from this variable, you will have to unwrap it. This just means putting an exclamation mark at the end of the variable.
+
+	EX1 : Without Forced Unwrapping
+
+		var myString:String?
+		myString = "Hello, Swift 4!"
+
+		if myString != nil {
+   			print(myString)
+		} else {
+			   print("myString has nil value")
+		}
+
+	O/P: Optional("Hello, Swift 4!")
+
+	EX2:   With Forced Unwrapping
+
+		var myString:String?
+		myString = "Hello, Swift 4!"
+
+		if myString != nil {
+		   print( myString! )
+		} else {
+		   print("myString has nil value")
+		}
+
+		O/P: Hello, Swift 4!
+
+10. Automatic Unwrapping
+
+	You can declare optional variables using exclamation mark instead of a question mark. Such optional variables will unwrap automatically and you do not need to use any further exclamation mark at the end of the variable to get the assigned value. 
+		
+	EX:	var myString:String!
+		myString = "Hello, Swift 4!"
+
+		if myString != nil {
+		  	 print(myString)
+		} else {
+		  	 print("myString has nil value")
+		}
+
+
+11. Optional Binding
+
+	Use optional binding to find out whether an optional contains a value, and if so, to make that value available as a temporary constant or variable.
+	An optional binding for the if statement is as follows −
+
+	if let constantName = someOptional {
+  	 statements
+	}
+
+	EX: 	var myString:String?
+		myString = "Hello, Swift 4!"
+
+		if let yourString = myString {
+			   print("Your string has - \(yourString)")
+		} else {
+			   print("Your string does not have a value")
+		}
+		
+12. switch statement
+
+	has Break: same as in objective c…
+ 
+	has fallThrough:
+
+	EX: var index = 10
+
+	switch index {
+	   case 100 :
+ 		   	  print( "Value of index is 100")
+     			 fallthrough
+	   case 10,15 :
+  		  	  print( "Value of index is either 10 or 15")
+     		  	 fallthrough
+	   case 5 :
+     			 print( "Value of index is 5")
+  	   default :
+   			  print( "default case")
+		}
+
+	O/P:  Value of index is either 10 or 15
+	 Value of index is 5
+
+
+13. The ? : Operator
+ 	
+	conditional operator ? : in the previous chapter which can be used to replace if...else statements. 
+
+	Exp1 ? Exp2 : Exp3;
+
+	Where Exp1, Exp2, and Exp3 are expressions. Notice the use and placement of the colon.
+
+	The value of a ? expression is determined like this: Exp1 is evaluated. If it is true, then Exp2 is evaluated and becomes the value of the entire ?	expression. If Exp1 is false, then Exp3 is evaluated and its value becomes the value of the expression.
+		
+14. String:
+
+	EX: //Multiple line string
+
+	let stringC = """
+	Hey this is a
+	example of multiple Line
+	string by tutorialsPoint 
+	"""
+
+15. Empty String
+	
+		EX: // Empty string creation using String literal
+		var stringA = ""
+
+		if stringA.isEmpty {
+ 		  print( "stringA is empty" )
+		} else {
+		   print( "stringA is not empty" )
+		}
+
+		// Empty string creation using String instance
+		let stringB = String()
+
+		if stringB.isEmpty {
+		   print( "stringB is empty" )
+		} else {
+ 		  print( "stringB is not empty" )
+		}
+
+		O/P:		stringA is empty
+		stringB is empty
+
+    16.  String Constants :
+	You can specify whether your String can be modified (or mutated) by assigning it to var/let keyword
+	
+		EX: var stringA = "Hello, Swift 4!"
+		stringA + = "--Readers--"
+
+		let stringB = String("Hello, Swift 4!")
+		stringB + = "--Readers--" /// Shows error for this line
+
+17. String Interpolation
+
+	String interpolation is a way to construct a new String value from a mix of constants, variables, literals, and expressions by including their values inside a string literal.
+	Each item (variable or constant) that you insert into the string literal is wrapped in a pair of parentheses, prefixed by a backslash. 
+
+		EX: var varA = 20
+		let constA = 100
+		var varC:Float = 20.0
+
+		var stringA = "\(varA) times \(constA) is equal to \(varC * 100)"
+		print( stringA )
+
+
+18. String Concatenation
+
+	use the + operator to concatenate two strings or a string and a character, or two characters.
+
+		EX: let constA = "Hello,"
+		let constB = "World!"
+
+		var stringA = constA + constB
+		print( stringA )
+
+19. String Length
+ 
+	Swift 4 strings do not have a length property, but you can use the global count() function to count the number of characters in a string.  (.count)
+
+20. String Comparison
+	
+	use the == operator to compare two strings variables or constants.
+
+21.  Unicode Strings
+
+		You can access a UTF-8 and UTF-16 representation of a String by iterating over its utf8 	and utf16 properties as demonstrated in the following 	example −
+
+		EX: 	 var unicodeString = "Dog???"
+
+			print("UTF-8 Codes: ")
+			for code in unicodeString.utf8 {
+ 			  print("\(code) ")
+			}
+
+			print("\n")
+
+			print("UTF-16 Codes: ")
+			for code in unicodeString.utf16 {
+ 			  print("\(code) ")
+			}
+
+22. Arrays:   ***(arrays are used to store ordered lists of values of the same type.)
+
+	Allocation of arrays In objective c :   
+		NSArray * objectiveArr =  [[NSArray alloc]init];
+
+	Allocation of arrays In Swift :   
+
+    * You can create an empty array of a certain type using the following initializer syntax −
+		 EX: 	var swiftArr = [Int]()   // () - means we are allocating that array [SomeType] - used for array 
+
+    * Here is the syntax to create an array of a given size a* and initialize it with a value −
+		EX: 	var someArray = [SomeType](count: NumbeOfElements, repeatedValue: InitialValue)
+			
+			var someInts = [Int](count: 3, repeatedValue: 0)
+
+    * Following is one more example to create an array of three elements and assign three values to that array −
+		EX:	var someInts:[Int] = [10, 20, 30]
+
+			
+		swiftArr.append(20)
+		swiftArr.append(30)
+		swiftArr += [40]
+
+		for item in someStrs {
+  		 print(item)
+		}
+
+	O/P:  20
+		 30
+		 40
+				(AND)
+	O/P:  		swiftArr.isEmpty = false
+
+	You can use enumerate() function which returns the index of an item along with its value
+
+	EX: var someStrs = [String]()
+
+		someStrs.append("Apple")
+		someStrs.append("Amazon")
+		someStrs += ["Google"]
+
+		for (index, item) in someStrs.enumerated() {
+  			 print("Value at index = \(index) is \(item)")
+		}
+
+	O/P:   	Value at index = 0 is Apple
+			Value at index = 1 is Amazon
+		 	Value at index = 2 is Google
+
+24. SETS:
+
+		sets are used to store distinct values of same types but they don’t have definite ordering as arrays have.
+
+	You can use sets instead of arrays if ordering of elements is not an issue, or if you want to ensure that there are no duplicate values. (sets allow only 	distinct values.)
+
+	var someSet = Set<Character>()
+	someSet.count
+	someSet.insert("c")   
+	someSet.insert("c")   
+	someSet.remove("c")     
+	someSet.contains("c")     
+
+	Iterating over a Set:
+	for items in someSet {
+	  	 print(someSet)
+	}
+
+	//Swift sets are not in an ordered way, to iterate over a set in ordered way
+
+	for items in someSet.sorted() {
+		   print(someSet)
+	}  
+
+25.  Dictionaries:
+
+	  used to store unordered lists of values of the same type.
+	  dictionaries use unique identifier known as a key to store a value which later can be referenced and looked up through the same key.
+
+    *  You can create an empty dictionary of a certain type
+		var someDict = [Int: String]()
+
+    *  allows you to create Dictionary from arrays (Key-Value Pairs.)
+	EX: var Distance = [2000,10, 620]
+	var cities = [“Delhi”,”Bangalore”,”Hyderabad”]
+	let cityDistanceDict = Dictionary(uniqueKeysWithValues: zip(cities, Distance))
+
+    * allows you to filter values from a dictionary.
+	EX: var closeCities = cityDistanceDict.filter { $0.value < 1000 }
+	O/P: ["Bangalore" : 10 , "Hyderabad" : 620]
+
+    * Accessing Dictionaries:-
+	 var someVar = someDict[key]
+
+    * Modifying Dictionaries:-
+  	 updateValue(forKey:)  method to add an existing value to a given key of the dictionary.
+
+	EX: var oldVal = someDict.updateValue("New value of one", forKey: 1)
+	(In objective c [dic setValue: @“some latest value” toKey:1)
+
+    * Remove Key-Value Pairs:-
+
+	removeValueForKey() method to remove a key-value pair from a dictionary. This method removes the key-value pair if it exists and returns the removed value, or returns nil if no value existed.
+	EX: var someDict:[Int:String] = [1:"One", 2:"Two", 3:"Three"]
+		var removedValue = someDict.removeValue(forKey: 2)
+
+		print( "Value of key = 1 is \(someDict[1])" )
+		print( "Value of key = 2 is \(someDict[2])" )
+		print( "Value of key = 3 is \(someDict[3])" )
+
+	O/P: 		Value of key = 1 is Optional("One")
+			Value of key = 2 is nil
+			Value of key = 3 is Optional("Three")
+
+
+    * You can also use subscript syntax to remove a key-value pair from a dictionary by assigning a value of nil for that key. 
+
+		someDict[2] = nil
+
+    * Iterating Over a Dictionary :-
+        - You can use a for-in loop to iterate over the entire set of key-value pairs in a Dictionary 
+
+			var someDict:[Int:String] = [1:"One", 2:"Two", 3:"Three"]
+
+			for (index, keyValue) in someDict.enumerated() {
+		   		print("Dictionary key \(index) - Dictionary value \(keyValue)")
+				}
+        - You can use enumerate() function which returns the index of the item along with its (key, value) pair
+
+			var someDict:[Int:String] = [1:"One", 2:"Two", 3:"Three"]
+			for (key, value) in someDict.enumerated() {
+				   print("Dictionary key \(key) - Dictionary value \(value)")
+			 }
+
+    * Convert to Arrays :-
+		You can extract a list of key-value pairs from a given dictionary to build separate arrays for both keys and values.
+		EX: var someDict:[Int:String] = [1:"One", 2:"Two", 3:"Three"]
+
+		let dictKeys = [Int](someDict.keys)
+		let dictValues = [String](someDict.values)
+
+		print("Print Dictionary Keys")
+
+		for (key) in dictKeys {
+ 			  print("\(key)")
+		}
+		print("Print Dictionary Values")
+
+		for (value) in dictValues {
+			   print("\(value)")
+		}
+
+
+26. Threads Swift Multi-Threading using GCD (Grand Central Dispatch
+
+	“GCD provides and manages FIFO queues to which your application can submit tasks in the form of block 	objects. Work submitted to dispatch queues are executed on a pool of threads fully managed by the 		system. No guarantee is made as to the thread on which a task executes.”)
+
+	Types of Queues:
+	When dealing with GCD, there are 3 types of queues:
+
+	1- The Main Queue: (and always keep in mind to do any UI updates on the main thread.)
+	This Queue has the highest priority of all , and it runs on the main thread.
+	All UI updates should be done on this thread or otherwise lagging and weird crashes will occur in your 		application.
+
+	Syntax:		 DispatchQueue.main.async {
+
+				// Do any UI updates here
+			}
+
+	2- The Global Queue:
+			This Queue is separated into 4 main types and a default type according to QOS(Quality of 		Service),from 	highest priority to lowest:
+
+	1- userInteractive : Work is virtually instantaneous. Similar to main thread.  (Has more priority of execution) 	2- userInitiated : Work is nearly instantaneous, such as a few seconds or less.
+	3- default: don’t use it usually , the type will be inferred by the system
+	4- utility: Work takes a few seconds to a few minutes.
+	5- background: Work takes significant time, such as minutes or hours. (Used for heavy operations and it is a low priority thread)
+
+	Both, utility and background threads should be used for heavy operations that needs time in order not to 	block the main thread.
+
+	Syntax:		 DispatchQueue.global(qos: .background). async {
+
+					// Do any Heavy operation here
+				}
+
+	3- Custom Queues:
+			Custom queues are queues that you can create on your own and give whatever QOS and 		attributes you want:
+
+	Syntax:	let concurrentQueue =  DispatchQueue(label: “cocurrentQueue”, qos: .background, 	 																			attributes: .concurrent )
+
+	let serialQueue =  DispatchQueue(label: “serialQueue”, qos: .background)
+
+	Async VS Sync:
+		As you saw in the example above we used the word async after each queue.
+		With GCD, you can dispatch a task either synchronously or asynchronously.
+		Sync means that no other task will start until the sync operation finishes , while Async will allow other 		tasks to start even if it didn’t finish yet.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SOAP to REST Service call list:
+
+(* appname= outlet in Exchange billinghome)
+
+1. MemberService - (callLoginServices (ExchangeBillingHome & OmniRetailerViewController & BillingHome & PastBilling),, closeChangePasswordView (ChangePasswordView))  ——>MemberServiceSvc_authenticateUser  , MemberServiceSvc_changePassword
+
+ 1.1———————=> memberServicesSvc  (small ‘m’) - registerClicked(OmniRetailerViewController)   ——>  memberServicesSvc_userRegistration  ———————>>> Completed  <<<<<<——————
+
+
+
+1. MemberService - (callLoginServices (OmniRetailerViewController) , closeChangePasswordView (ChangePasswordView) ) MemberServiceSvc_authenticateUser , MemberServiceSvc_changePassword   ———————>>> Completed  <<<<<<——————
+
+
+2. StoreServices -(getStore: (web service)(NewOrder), )   ——>StoreServiceSvc_getStores  ———————>>> Completed  <<<<<<——————
+
+3. AppSettingsServices -  (callAppSettings (OmniRetailerViewController) )   ———>appSettingsSvc_getAppSettings    ———————>>> Completed  <<<<<<——————
+
+
+
+4. LoginService - (callOtpServices, validateOTP, closeChangePasswordView (OmniRetailerViewController))   ——>  LoginServiceSvc_generateOTP , LoginServiceSvc_validateOTP,  LoginServiceSvc_resetPassword ———————>>> Completed  <<<<<<——————
+
+
+5. customerService - (cardPaymentCall ,addCustomerDetails, getCustomerDetailsForOffers (ExchangeBillingHome), getCustomerDetails (CustomerWalkOut),  cardPaymentCall , addCustomerDetails,  getCustomerDetailsForOffers, getCustomerDetails (BillingHome),,              cardPaymentCall, getCustomerDetails , addCustomerDetails, getCustomerDetailsDoorDel(PastBilling) ,,  getCustomerDetails(NewOrder) ,, getCustomerDetails(EditOrder),, getCustomerDetailsForOffers(IssueLowyalty)))  ———>  CustomerServiceSvc_createCustomer  , CustomerServiceSvc_updateCustomer , CustomerServiceSvc_getCustomerDetails 
+
+
+
+
+——————> 5.  customerService -  (cardPaymentCall —> (ExchangeBillingHome, BillingHome , PastBilling),,
+(addCustomerDetails —>(ExchangeBillingHome, BillingHome, PastBilling),,
+(getCustomerDetailsForOffers —> (BillingHome, ExchangeBillingHome, IssueLowyalty),, (Need Testing)
+(getCustomerDetails ——> BillingHome, CustomerWalkOut, PastBilling, NewOrder, EditOrder),,
+(getCustomerDetailsDoorDel ——> PastBilling (Need Testing). ———————>>> Completed  <<<<<<——————
+
+6. SalesReportService - (No Soap)
+
+       —>  SalesService - (getXZReports (XReportController), getXZReports(ZReportController), getHourWiseReports(web service) ,  createBillingHandler: billId:(ExchangeBillingHome, BillingHome) ,,  alertView: (ReturnItem), getXZReports (OmniHomepage),,  callingSalesServiceforRecords (SalesReport, CategoryWiseReport, SkuWiseReport, BillSummary),, getTaxReport (TaxWiseReports),,  calllingDepartmentWiseReports(DepartmentWiseReport) ) ———>SalesServiceSvc_getXZreports, SalesServiceSvc_getHourWiseReport,  SalesServiceSvc_getBillingDetails, SalesServiceSvc_returningItem,, SalesServiceSvc_getSalesReports. ———————>>> Completed  <<<<<<——————
+
+
+
+
+———————> FBStockReceipts -(Not available)
+
+7. OrdersServices - (viewDidLoad, firstButtonPressed, lastButtonPressed, previousButtonPressed ,  nextButtonPressed ,  (PreviousOrders))  ———>.  OrderServiceSvc_getOrderDetails, OrderServiceSvc_getOrders. ——>>>>> Present "PreviousOrder" class is not using any where of OUTLET app..(So, I am not converting SOAP call to REST call)  ———————>>> Completed (No need to test) <<<<<<——————
+
+
+8. OffersService -(offerServiceCall: isDownloading: (Offers) ->(OfflineBillingSer (SaveOffers(But not using))),  getOffersDetails , getAllOffersWithDataThroughSoapSynchronousRequest (WebService) ) ———>  OfferServiceSvc_getOffer ———————>>> Completed  <<<<<<——————
+
+
+9. RawMaterialService - (callRawMaterialsForNormalStock, getStockDetailsByStockTypeHandler (NormalStock) , ) ———> RawMaterialServiceSvc_getMaterialStockDetailsByStockType, RawMaterialServiceSvc_getSkuDetailsForMaterialStock ——>>>>> Present “NormalStock” class is not using any where of OUTLET app.. (So, present I am not converting SOAP call to REST call) ———————>>> Completed   (No need to test)<<<<<<——————
+
+10. ProductMasterService - (getProducts(WebService ) , )  ———> ProductMasterServiceSvc_getProducts. ——————>>> Not available in services <<<————
+
+11. FBStockIssues (StockIssueServiceSvc) - (callReceiptIDDetails, submitButtonPressed , cancelButtonPressed (EditStockIssue) )  ———> StockIssueServiceSvc_getStockIssue , StockIssueServiceSvc_updateStockIssue   ————> “EditStockIssue class” is not using anywhere of The app..———————>>> Completed  <<<<<<—————— (No need To Test) 
+
+
+
+12. StockReceiptServiceSvc - ( callReceiptDetails, submitButtonPressed, cancelButtonPressed (EditReceiptGoodsProcurement) ,, getAllReceiptIDS, callReceiptIDS, submitButtonPressed, cancelButtonPressed (ReceiptGoodsProcurement) ,, callReceiptDetails (ViewReceiptGoodsProcurement))  ———>StockReceiptServiceSvc_getStockProcurementReceipt, StockReceiptServiceSvc_createNewStockProcurementReceipt , StockReceiptServiceSvc_getStockProcurementReceipts , StockReceiptServiceSvc_getStockProcurementReceiptIds,  ———————>>> Completed  <<<<<<—————— (Need To Test)
+
+—————————>> StockReturnService - (NO SOAP)
+
+   13.  LoyaltycardServiceSvc -  (getLoyaltycardDetails, getLoyaltycardDetailsByRestFullService (WebService) ,, scanner: (ExchangeBillingHome, BillingHome, PastBilling),, submitButtonPressed,getLoyaltyPrograms (ShowLOwyalty, IssueLowyalty, EditLowyalty) ,, editLoyalty(EditLoyalty))   ———> LoyaltycardServiceSvc_getissuedLoyaltycard ,  LoyaltycardServiceSvc_issueLoyaltyCard, LoyaltycardServiceSvc_getAvailableLoyaltyPrograms, LoyaltycardServiceSvc_updateIssuedLoyaltyCards  ———————>>> Completed  <<<<<<—————— (Need To Test)
+
+
+14. EmployeesSvc -  (getEmployeeMaster (WebService) ,, selectSalesPersonIds(ExchangeBillingHome, BillingHome, SalesReports, SalesmenCommissionReport) ,, )   ———>   EmployeesSvc_getEmployees  ———————>>> Completed  <<<<<<—————— (Need To Test)
+
+
+
+15. purchaseOrdersService - (orderButtonPressed, cancelButtonPressed , firstButtonPressed , lastButtonPressed , previousButtonPressed, nextButtonPressed, getPurchaseOrders(CreatePurchaseOrder) ,,  viewDidLoad(ViewPurchaseOrder) ,, viewDidLoad, orderButtonPressed, cancelButtonPressed (EditPurchaseOrder) )  ———> purchaseOrdersSvc_createPurchaseOrder, purchaseOrdersSvc_getPurchaseOrders ,purchaseOrdersSvc_getPurchaseOrderDetails , purchaseOrdersSvc_updatePurchaseOrder, ———————>>> Completed  <<<<<<—————— (Need To Test)
+
+
+———————>> Vouchercoupon - (Not Using)
+
+——————>>>StocksDetailsService - (Not Using)
+
+————————>> OrderServices - (NO SOAP)
+
+————————> FBOrderService - (NO SOAP)
+ 
+16. storeStockVerificationServices -  (getProductVerification (web service) ,, getListOfStorageLocations, getListOfStorageUnits, submitButtonPressed (StockVerification) )  ———>
+storeStockVerificationServicesSvc_getProductVerification, storeStockVerificationServicesSvc_getStorageLocation, storeStockVerificationServicesSvc_getStorageUnit, storeStockVerificationServicesSvc_createStock  ———————>>> Completed  <<<<<<—————— (Need To Test)
+
+
+17. GiftVoucherServices - ( getGiftVoucherDetails (webService) ,  scanner: (ExchangeBillingHome, BillingHome, PastBilling) ,, submitButtonPressed(ViewGiftVoucher))  ———> GiftVoucherServices_getGiftVoucherDetails
+———————>>> Completed  <<<<<<—————— (Need To Test)
+
+18. GiftCouponServices - (scanner: (ExchangeBillingHome , BillingHome, PastBilling ) ,, submitButtonPressed(ViewGiftCoupon)  ———>   GiftCouponServicesSvc_getCouponDetails. ———————>>> Completed  <<<<<<—————— (Need To Test)
+
+19. CountersService - (updateSyncStatus: (OmniHomePage) ,, getCounters (SalesReport ,  SalemenCommissinReport))   ———>    CountersServiceSvc_updateSyncDownloadStatus, CountersServiceSvc_getCounters  ———————>>> Completed  <<<<<<—————— (Need To Test)
+
+
+———————>> WarehouseConfigurations - (Not available in OutLet)
+———————>> Counters - (Not available in OutLet)
+———————>> OutletConfigurations - (Not available in OutLet)	
+———————>> ExportImports - (Not available in OutLet)
+———————>> Shifts -  (Not available in OutLet)
+———————>> ConnectorServices -  (Not available in OutLet)
+———————>> CustomerCheckInService -  (Not available in OutLet)
+———————>> SlotServices -  (Not available in OutLet)
+———————>> GenericSettingService -  (Not available in OutLet)
+———————>> CustomerComplaintService -  (Not available in OutLet)
+
+20. storeTaxationService -  (getStoreTaxesInDetailThroughSoapServiceCall (WebService)) ———>   StoreTaxationService_getStoreTaxation  ———————>>> Completed  <<<<<<—————— (Need To Test)
+
+
+21. orderShipment	 -  (Not available in OutLet)
+
+
+22. ZoneMasterServiceSvc - (getZoneIdsRequest (WebService) ) ———>     ZoneMasterServiceSvc_getZones ——————>>> Completed  <<<<<<—————— (Need To Test)
+
+
+23. BrandMasterService - (getBrandList (WebService))   ———>     BrandMasterServiceSvc_getBrand———————>>> Completed  <<<<<<—————— (Need To Test)
+
+ 24.  DepartmentService    - (getDepartmentList (WebService)) ———>.  DepartmentServiceSvc_getDepartments———————>>> Completed  <<<<<<—————— (Need To Test)
+
+
+25. SupplierServiceSvc - (getSupplierDetailsData (Webservice), getSuppliers (ReceiptGoodsProcurement, CriticalStock , CreatePurchaseOrder))   ———>  SupplierServiceSvc_getSuppliers,  ———————>>> Completed  <<<<<<——————
+
+26. UtilityMasterServiceSvc -  (getProductCategory , getAllLocationDetailsData , getProductCategories, getProductSubCategories (WebService), getTaxes(OfflineBillingService) ,, getLocations (EditStockIssue, StockVerification, CreatePurchaseOrder) )   ———>  UtilityMasterServiceSvc_getCategories, UtilityMasterServiceSvc_getLocation, UtilityMasterServiceSvc_getProductCategory, UtilityMasterServiceSvc_getProductSubCategory, UtilityMasterServiceSvc_getTaxes,   ———————>>> Completed  <<<<<<—————— (Need To Test)
+
+
+27. SkuServiceSvc - (callSkuIdService , getSkuIDForGivenProductNameHandler , (ExchangeBillingHome, EditPurchaseOrder)) —————>  SkuServiceSvc_searchProducts, SkuServiceSvc_getSkuDetails .    ———————>>> Completed  <<<<<<—————— (Need To Test)
+
+
+
+
+UPLOAD Errors:
+
+App Store Connect Operation Error
+ERROR ITMS-90680: "Invalid directory. The bundle Payload/customerApp.app/www/plugins/com.razorpay.cordova/src/ios/Razorpay.framework is not contained in a correctly named directory. It should be under "Frameworks"."
+Solution: (file location —> com.razorpay.cordova/src/ios/Razorpay.framework) is wrong remove it and add In frameworks.
+
+App Store Connect Operation Error
+ERROR ITMS-90474: "Invalid Bundle. iPad Multitasking support requires these orientations: 'UIInterfaceOrientationPortrait,UIInterfaceOrientationPortraitUpsideDown,UIInterfaceOrientationLandscapeLeft,UIInterfaceOrientationLandscapeRight'. Found 'UIInterfaceOrientationPortrait,UIInterfaceOrientationPortraitUpsideDown' in bundle 'io.ionic.freshworld60'."
+Solution: (General —> change Universal to iPhone)
+
+App Store Connect Operation Error
+ERROR ITMS-90685: "CFBundleIdentifier Collision. There is more than one bundle with the CFBundleIdentifier value 'com.razorpay.CheckoutOtpelf' under the iOS application 'customerApp.app'."
+
+App Store Connect Operation Error
+ERROR ITMS-90685: "CFBundleIdentifier Collision. There is more than one bundle with the CFBundleIdentifier value 'com.razorpay.CheckoutOtpelf' under the iOS application 'customerApp.app'."
+
+App Store Connect Operation Error
+ERROR ITMS-90680: "Invalid directory. The bundle Payload/customerApp.app/www/plugins/com.razorpay.cordova/src/ios/Razorpay.framework is not contained in a correctly named directory. It should be under "Frameworks"."
+
+
+
+
+
+UPLOAD Warnings:
+
+App Store Connect Operation Warning
+WARNING ITMS-90704: "Missing App Store Icon. iOS Apps must include a 1024x1024px App Store Icon in PNG format. Without providing the icon in the Asset Catalog or via App Store Connect, apps cannot be submitted for App Review or Beta App Review. Refer to https://developer.apple.com/ios/human-interface-guidelines/icons-and-images/app-icon/ for more information."
+
+
+App Store Connect Operation Warning
+WARNING ITMS-90080: "The executable 'Payload/customerApp.app/Frameworks/Razorpay.framework' is not a Position Independent Executable. Please ensure that your build settings are configured to create PIE executables. For more information refer to Technical Q&A QA1788 - Building a Position Independent Executable in the iOS Developer Library."
+
+
+
+ERROR ITMS-90189: "Redundant Binary Upload. You've already uploaded a build with build number '1.0.0' for version number '1.0.0'. Make sure you increment the build string before you upload your app to App Store Connect. Learn more in Xcode Help (http://help.apple.com/xcode/mac/current/#/devba7f53ad4)."
+
+
+
+
+Issues sent through mail by app store team for fresh world app : (while sending data to the appstore through upload process)
+
+ITMS-90683: Missing Purpose String in Info.plist - Your app's code references one or more APIs that access sensitive user data. The app's Info.plist file should contain a NSPhotoLibraryUsageDescription key with a user-facing purpose string explaining clearly and completely why your app needs the data. Starting Spring 2019, all apps submitted to the App Store that access user data are required to include a purpose string. If you're using external libraries or SDKs, they may reference APIs that require a purpose string. While your app might not use these APIs, a purpose string is still required. You can contact the developer of the library or SDK and request they release a version of their code that doesn't contain the APIs. Learn more (https://developer.apple.com/documentation/uikit/core_app/protecting_the_user_s_privacy).
+
+Though you are not required to fix the following issues, we wanted to make you aware of them:
+
+ITMS-90683: Missing Purpose String in Info.plist - Your app's code references one or more APIs that access sensitive user data. The app's Info.plist file should contain a NSLocationAlwaysUsageDescription key with a user-facing purpose string explaining clearly and completely why your app needs the data. Starting Spring 2019, all apps submitted to the App Store that access user data are required to include a purpose string. If you're using external libraries or SDKs, they may reference APIs that require a purpose string. While your app might not use these APIs, a purpose string is still required. You can contact the developer of the library or SDK and request they release a version of their code that doesn't contain the APIs. Learn more (https://developer.apple.com/documentation/uikit/core_app/protecting_the_user_s_privacy).
+
+ITMS-90683: Missing Purpose String in Info.plist - Your app's code references one or more APIs that access sensitive user data. The app's Info.plist file should contain a NSLocationWhenInUseUsageDescription key with a user-facing purpose string explaining clearly and completely why your app needs the data. Starting Spring 2019, all apps submitted to the App Store that access user data are required to include a purpose string. If you're using external libraries or SDKs, they may reference APIs that require a purpose string. While your app might not use these APIs, a purpose string is still required. You can contact the developer of the library or SDK and request they release a version of their code that doesn't contain the APIs. Learn more (https://developer.apple.com/documentation/uikit/core_app/protecting_the_user_s_privacy). 
+
+
+
+ITMS-90535: Unexpected CFBundleExecutable Key - The bundle at '/Payload/customerApp.app/www/plugins/cordova-plugin-camera/tests/ios/CDVCameraTest/CDVCameraLibTests/Info.plist' does not contain a bundle executable. If this bundle intentionally does not contain an executable, consider removing the CFBundleExecutable key from its Info.plist and using a CFBundlePackageType of BNDL. If this bundle is part of a third-party framework, consider contacting the developer of the framework for an update to address this issue. 
+
+
+ITMS-90535: Unexpected CFBundleExecutable Key - The bundle at '/Payload/customerApp.app/www/plugins/cordova-plugin-splashscreen/tests/ios/CDVSplashScreenTest/CDVSplashScreenLibTests/Info.plist' does not contain a bundle executable. If this bundle intentionally does not contain an executable, consider removing the CFBundleExecutable key from its Info.plist and using a CFBundlePackageType of BNDL. If this bundle is part of a third-party framework, consider contacting the developer of the framework for an update to address this issue. 
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
