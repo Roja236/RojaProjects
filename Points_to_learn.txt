@@ -1,0 +1,57 @@
+1. Can we override static method?
+
+ANS:  																							 		
+
+		link for this question (https://stackoverflow.com/questions/40400634/swift-override-static-method-compile-error)
+
+		 In class B, the method list is a separate method from list in class A. They just share the same name, that's all.
+		The parameters of the two list methods are actually different:
+		// A.list
+		static func list(completion: (_ result:[A]?) -> Void) {
+		// B.list
+		static func list(completion: (_ result:[B]?) -> Void) {
+		A.list takes an argument of type (_ result: [A]?) -> Void while B.list takes a (_ result: [B]?) -> Void. The array 			type in the closure type's parameter list is different!
+		So you're not overridding anything, you're just overloading.
+		Note:
+		static methods can never be overridden! If you want to override a method, use class instead of static.
+
+		class A {
+   		 class func get(completion: (_ result:A?) -> Void) {
+      		completion (nil)
+		    }
+		}
+
+		class B: A {
+	  	  override class func get(completion: (_ result:B?) -> Void) {
+   	    	 completion (nil)
+    		}
+		}	
+
+
+
+Learned Points:  in story board (User interface) on the top right side(Utilities Panel) we have 
+Library (UI objects), show standard editor (UI elements work place), show assistant editor ( will have previews on storyboard and viewController classes ),, show version editor(Shows the existing elements creation n display process details in XML form).
+
+Hide or show navigator (files present on left side area) , Hide or show debug , Hide or showinspectors(here we can check the view or elements details.)
+
+
+Reachability
+KVO, KVC, 
+Story boards
+Clousers,
+Protocols,
+If let, guard let
+Will get, did set(need to explain)
+
+
+
+Need to try pull in GitHub
+Push notifications
+Local notification
+Slipviewcontroller
+
+
+
+1. Go to Editor --> Embed In --> Tab Bar Controller (or Navigation Controller) (first select any viewController / NavCont/TabBarCont/ Table/Collection view controllers)
+
+
