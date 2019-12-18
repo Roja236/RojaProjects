@@ -879,6 +879,102 @@ ITMS-90535: Unexpected CFBundleExecutable Key - The bundle at '/Payload/customer
 ITMS-90535: Unexpected CFBundleExecutable Key - The bundle at '/Payload/customerApp.app/www/plugins/cordova-plugin-splashscreen/tests/ios/CDVSplashScreenTest/CDVSplashScreenLibTests/Info.plist' does not contain a bundle executable. If this bundle intentionally does not contain an executable, consider removing the CFBundleExecutable key from its Info.plist and using a CFBundlePackageType of BNDL. If this bundle is part of a third-party framework, consider contacting the developer of the framework for an update to address this issue. 
 /***********************************/
 
+
+/***********************************/
+
+AppDelegate Life Cycle:
+
+1. persistentContainer
+  2. func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: 	[UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+    3. func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration 
+4. RootViewController
+  5.  func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+ 6. func sceneWillEnterForeground(_ scene: UIScene) {
+ 7. func sceneDidBecomeActive(_ scene: UIScene) {
+
+
+
+When I press projects back - “sceneWillResignActive”
+
+When I drag down side up then project gets minimised ( here we can see all the background app) -  “sceneWillResignActive”. 
+
+When I click on the minimised project - “sceneDidBecomeActive”
+
+Now when I minimise and close the project - “sceneDidDisconnect”
+
+
+When I minimise and dragged to close the project -     1 func sceneDidDisconnect(_ scene: UIScene) {
+   2  func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+/***********************************/
+
+
+
+/***********************************/
+When UIstoryBoard is taken as parent class we don’t get “viewDidLoad”(view life cycle) method.
+When UITabBarcontroller is taken as parent class we get “viewDidLoad” method.
+(Bcoz UITabBarController is the child of UIviewController “(UITabBarController : UIViewController)”)
+
+Similarly UICollectionViewController, UITableViewController, UINavigationController, UISearchController,  UIAlertController, UIPageViewController,  UISplitViewController, UIActivityViewController, UIFontPickerViewController
+
+
+UIImagePickerController: UINavigationController
+/***********************************/
+
+
+/***********************************/
+Function Type:
+Function type is made up of the parameter types and the return type of the function. For above example, function type is:(Int, Int) -> Int
+
+Function type can be set as parameter or return type of function.
+Function types can be assign to any variable like this:
+
+var mathFunction: (Int, Int) -> Int = add
+
+
+Closure Expression:
+
+{ (parameters) -> returnType  in
+
+Statements
+}
+
+Closure can be created by putting a function type inside curly braces and in keyword after the return type.
+
+
+Implicit Returns from Closure:
+Single-expression closures can implicitly return the result of their single expression by omitting the return keyword from their declaration.
+/***********************************/
+
+/***********************************/
+
+Carthage Usage process:
+
+Carthage is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To install Reachability.swift with Carthage:
+
+
+1. Install Carthage via Home-brew
+
+		a. Home-brew  - first need to install Homebrew, via Homebrew we can install carthage.
+		b. Open Terminal and past the below line :
+		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+2. Optional step:(but necessary to check) - Xcode -> command , -> locations -> command line tools -> select Xcode
+3. brew install carthage
+4. brew list —version carthage (To check the carthage/git versions)
+5. brew update
+6. cd draw project file
+7. touch cartfile
+8. Past this  in cartfile-   github "ashleymills/Reachability.swift"     
+9. carthage update
+ 
+10. Drag Reachability.framework from the Carthage/Build/iOS/ directory to the Linked Frameworks and Libraries section of your Xcode project’s General settings.
+
+11. Add $(SRCROOT)/Carthage/Build/iOS/Reachability.framework to Input Files of Run Script Phase for Carthage.
+12. In your code import Reachability like so: import Reachability
+/***********************************/
+
+
  
 
 
